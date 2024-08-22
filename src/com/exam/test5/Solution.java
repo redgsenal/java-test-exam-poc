@@ -1,6 +1,5 @@
 package com.exam.test5;
 
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Solution {
