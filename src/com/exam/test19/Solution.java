@@ -9,10 +9,10 @@ import java.util.regex.Pattern;
 public class Solution {
 
     public static void main(String[] args) {
-        //Scanner scan = new Scanner(System.in);
-        //String s = scan.nextLine();
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        scan.close();
         displayStringToken("He is a very very good boy, isn't he?");
-        //scan.close();
     }
 
     private static void displayStringToken(String s) {
@@ -22,7 +22,6 @@ public class Solution {
         List<String> tokens = new ArrayList<>();
         Pattern pattern = Pattern.compile("[A-Za-z]+");
         Matcher matcher = pattern.matcher(s);
-        int count = 0;
         while (matcher.find()) {
             String value = matcher.group();
             tokens.add(value);
