@@ -7,8 +7,8 @@ import java.util.regex.PatternSyntaxException;
 
 public class Solution {
 
-    private static final String TAG_PATTERN = "<(\\w+)([^<]*?)>(?:[^<]*<\\1[^<]*>)*(.*?)<\\/\\1>";
-    private static final Pattern PATTERN = Pattern.compile(TAG_PATTERN, Pattern.UNICODE_CASE);
+    private static final String CONTENT_PATTERN = "<(\\w+)([^<]*?)>(?:[^<]*<\\1[^<]*>)*(.*?)<\\/\\1>";
+    private static final Pattern PATTERN = Pattern.compile(CONTENT_PATTERN, Pattern.UNICODE_CASE);
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -32,12 +32,13 @@ public class Solution {
     private static void displayTagContents(String line) {
         try {
             if (!hasTags(line)) {
-                System.out.println(line);
+                System.out.println("None");
                 return;
             }
             Matcher matcher = PATTERN.matcher(line);
             while (matcher.find()) {
                 String content = matcher.group(3);
+                System.out.println(content);
                 displayTagContents(content);
             }
         } catch (Exception e) {
