@@ -13,7 +13,6 @@ public class Test3 {
     private static final Pattern PATTERN = Pattern.compile(CONTENT_TAG_REGEX);
 
     // Match the pattern with the HTML string
-
     private static List<String> extractContent(Matcher matcher) {
         List<String> contents = new ArrayList<>();
         while (matcher.find()) {
@@ -34,14 +33,15 @@ public class Test3 {
     }
 
     public static void main(String[] args) {
-        String html = "<body><h1><a>Hello</a></h1><h1>There!</h1></body>";
+        //String html = "<body><h1><a>Hello</a></h1><h1>There!</h1></body>";
+        String html = "<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>";
         List<String> contents = new ArrayList<>();
         String content = html;
         while (isContentContainTags(content)) {
             Matcher matcher = PATTERN.matcher(content);
-            while(matcher.find()){
+            while (matcher.find()) {
                 content = matcher.group(2);
-                if (!isContentContainTags(content)){
+                if (!isContentContainTags(content)) {
                     contents.add(content);
                     continue;
                 }
@@ -53,7 +53,7 @@ public class Test3 {
 }
 
 
-    /*public static void main(String[] args) {
+/*public static void main(String[] args) {
         String html = "<body><h1><a>Hello</a></h1><h1>There!</h1></body>";
         Matcher matcher = PATTERN.matcher(html);
         while (matcher.find()) {
@@ -65,4 +65,3 @@ public class Test3 {
             System.out.println("Content: " + content1);
         }
     }*/
-
