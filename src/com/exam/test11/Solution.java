@@ -3,6 +3,7 @@ package com.exam.test11;
 import java.util.Scanner;
 
 public class Solution {
+
     public static void main(String[] argh) {
         Scanner scan = new Scanner(System.in);
         try {
